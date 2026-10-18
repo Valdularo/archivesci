@@ -133,6 +133,26 @@ body > center > img {
   text-decoration: none;
 }
 
+.transcript-content {
+  margin-top: 20px;
+  padding: clamp(16px, 3vw, 28px);
+  border: 1px solid var(--archive-line);
+  border-left: 3px solid var(--archive-green-strong);
+  border-radius: 5px;
+  background: #141b17;
+}
+
+#main .speaker {
+  display: inline-block;
+  margin: .2em .35em .2em 0;
+  padding: .08em .45em;
+  border-radius: 999px;
+  background: rgba(166, 227, 161, .08);
+  color: #c5d8c5;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 #main p {
   margin: 1em 0;
   color: var(--archive-muted);
