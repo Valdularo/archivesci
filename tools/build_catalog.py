@@ -11,6 +11,12 @@ from urllib.parse import unquote, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVE = ROOT / "archivalscience.shock-therapy.org"
 OUTPUT = ROOT / "catalog.js"
+TRANSCRIPT_NAVIGATION = ARCHIVE / "transcript-navigation.js"
+TRANSCRIPT_NAVIGATION_TAG = '<script defer charset="utf-8" src="transcript-navigation.js"></script>'
+TRANSCRIPT_NAVIGATION_PATTERN = re.compile(
+    r"<script\b[^>]*\bsrc=[\"']transcript-navigation\.js[\"'][^>]*></script>",
+    re.IGNORECASE,
+)
 
 
 class CollectionParser(HTMLParser):
@@ -103,6 +109,104 @@ def parse_collection(path):
     return records
 
 
+def build_transcript_navigation(records):
+    available = [record for record in records if record["available"]]
+    navigation = {}
+    for index, record in enumerate(available):
+        navigation[Path(record["path"]).name] = {
+            "title": record["title"],
+            "collection": record["collection"],
+            "position": index + 1,
+            "total": len(available),
+            "previous": (
+                {
+                    "path": Path(available[index - 1]["path"]).name,
+                    "title": available[index - 1]["title"],
+                }
+                if index > 0
+                else None
+            ),
+            "next": (
+                {
+                    "path": Path(available[index + 1]["path"]).name,
+                    "title": available[index + 1]["title"],
+                }
+                if index + 1 < len(available)
+                else None
+            ),
+        }
+
+    payload = json.dumps(navigation, ensure_ascii=True, separators=(",", ":"))
+    TRANSCRIPT_NAVIGATION.write_text(
+        f"""(() => {{
+  const entries = {payload};
+  const current = entries[decodeURIComponent(location.pathname.split('/').pop())];
+  const transcript = document.querySelector('.transcript-content');
+  if (!current || !transcript) return;
+
+  const navigation = document.createElement('nav');
+  navigation.className = 'transcript-navigation';
+  navigation.setAttribute('aria-label', 'Transcript sequence');
+
+  function createLink(entry, direction, label) {{
+    if (!entry) {{
+      const unavailable = document.createElement('span');
+      unavailable.className = 'transcript-navigation-link is-unavailable';
+      unavailable.setAttribute('aria-disabled', 'true');
+      unavailable.textContent = label;
+      return unavailable;
+    }}
+
+    const link = document.createElement('a');
+    link.className = `transcript-navigation-link is-${{direction}}`;
+    link.href = entry.path;
+    link.textContent = label;
+    link.title = entry.title;
+    return link;
+  }}
+
+  const previous = createLink(current.previous, 'previous', '\\u2190 Previous transcript');
+  const position = document.createElement('span');
+  position.className = 'transcript-navigation-position';
+  position.textContent = `${{current.position}} of ${{current.total}} \\u00b7 ${{current.collection}}`;
+  const next = createLink(current.next, 'next', 'Next transcript \\u2192');
+
+  navigation.append(previous, position, next);
+  transcript.prepend(navigation);
+}})();
+""",
+        encoding="utf-8",
+    )
+
+    for record in available:
+        transcript_path = ROOT / record["path"]
+        source = transcript_path.read_bytes().decode("latin-1")
+        existing_tag = TRANSCRIPT_NAVIGATION_PATTERN.search(source)
+        if existing_tag:
+            line_end = existing_tag.end()
+            if source.startswith("\r\n", line_end):
+                line_end += 2
+            elif source.startswith("\n", line_end):
+                line_end += 1
+            source = (
+                source[: existing_tag.start()]
+                + TRANSCRIPT_NAVIGATION_TAG
+                + "\n"
+                + source[line_end:]
+            )
+            transcript_path.write_bytes(source.encode("latin-1"))
+            continue
+        closing_head = re.search(r"</head\s*>", source, re.IGNORECASE)
+        if not closing_head:
+            raise ValueError(f"Transcript has no closing head tag: {transcript_path}")
+        source = (
+            source[: closing_head.start()]
+            + f"    {TRANSCRIPT_NAVIGATION_TAG}\n"
+            + source[closing_head.start() :]
+        )
+        transcript_path.write_bytes(source.encode("latin-1"))
+
+
 def main():
     collections = []
     records = []
@@ -125,6 +229,8 @@ def main():
                     "collection": collection["title"],
                 }
             )
+
+    build_transcript_navigation(records)
 
     payload = json.dumps(
         {"collections": collections, "records": records},
