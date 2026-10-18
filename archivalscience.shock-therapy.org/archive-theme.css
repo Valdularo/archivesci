@@ -184,10 +184,6 @@ blockquote {
   color: var(--archive-muted);
 }
 
-.statcounter {
-  display: none;
-}
-
 @media (max-width: 640px) {
   h1,
   #links,
