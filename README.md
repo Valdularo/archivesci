@@ -10,6 +10,10 @@ This is a static site and can be hosted on GitHub Pages without a build step or 
 
 The site uses relative links, so it works both at a GitHub Pages project URL and from a local copy. `.nojekyll` tells GitHub Pages to serve the archive as-is.
 
+## Submitting logs
+
+The **Submit Your Logs** page links to a GitHub issue form because GitHub Pages cannot receive file uploads. Submissions are public and contributors need a GitHub account. Contributors can paste short logs into the form or attach a `.txt` file in a follow-up issue comment. Review submissions before adding any material to the archive.
+
 ## Updating the search index
 
 The searchable index is generated from collection pages in `archivalscience.shock-therapy.org/`. If those pages change, rebuild `catalog.js` with:

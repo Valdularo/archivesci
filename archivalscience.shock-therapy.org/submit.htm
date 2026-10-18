@@ -21,24 +21,19 @@
 </div></center><br>
 <center><img src="pics.jpg"></center>
 <div id="main"><h2>Submit Your Logs</h2>
-<p>If you have any logs, be it personal or from a live event, that you wish to share with us, all you need to do is submit them through this simple form below. After each log has been submitted Othinn will personally review it, and if it's deemed suitable will be added to Archival Science.</p>
-<p>I'm afraid that we can only accept logs in .txt format. The best way to submit logs to is first run them through <a href="http://www.glitchsociety.com/format-logs/">Procurator's Chatlog Formatter</a>, using the HTML option. Then copy the result into a notepad file and save it to an area of your computer you can readily access.</p>
-<p>If possible, can you please name your log something like [AuthorName][Date][4-16 Character Description].txt. If you attempt to upload a log with the same name as one which already exists on the server, you'll get an error message asking you to rename it and try again. You can use an underscore character _ to seperate words in your title if you wish, these will later be interpreted as spaces.</p>
-<p>Thanks for your submission</p>
-<center>
-<form enctype="multipart/form-data" name="submit_log" action="http://archivalscience.shock-therapy.org/process_log.htm" method="POST">
-<h3>Author Name</h3>
-<p class="center"><input type="text" name="author" size="40"></p>
-<h3>Desired Category:</h3>
-<select name="Cat">
-<option value=1>1: Chapter 1.1</option><option value=2>2: Chapter 1.2</option><option value=3>3: Chapter 1.3</option><option value=4>4: Chapter 2.1</option><option value=5>5: Chapter 2.2</option><option value=6>6: Chapter 2.3</option><option value=7>7: Chapter 3.1</option><option value=8>8: Chapter 3.2</option><option value=9>9: Chapter 3.3</option><option value=10>10: Chapter 4.1</option><option value=11>11: Chapter 4.2</option><option value=12>12: Chapter 4.3</option><option value=13>13: Chapter 5.1</option><option value=14>14: Chapter 5.2</option><option value=15>15: Chapter 5.3</option><option value=18>18: Chapter 6.1</option><option value=19>19: Chapter 6.2</option><option value=20>20: Chapter 6.3</option><option value=21>21: Chapter 7.1</option><option value=22>22: Chapter 7.2</option><option value=23>23: Chapter 7.3</option><option value=24>24: Chapter 8.1</option><option value=25>25: Chapter 8.2</option><option value=26>26: Chapter 8.3</option><option value=37>37: Chapter 9.1</option><option value=38>38: Chapter 9.2</option><option value=39>39: Chapter 9.3</option><option value=40>40: Chapter 10.1</option><option value=41>41: Chapter 10.2</option><option value=42>42: Chapter 10.3</option><option value=45>45: Chapter 11.1</option><option value=46>46: Chapter 11.2</option><option value=47>47: Chapter 11.3</option><option value=48>48: Chapter 12.1</option><option value=51>51: Chapter 12.1 and Beyond</option><option value=30>30: Character Details</option><option value=44>44: Commandos</option><option value=32>32: Guidebook Details</option><option value=31>31: Items Details</option><option value=29>29: Miscellaneous Documents</option><option value=33>33: NPC Dialogue</option><option value=34>34: Player Events  Other random logs</option><option value=27>27: Special Events</option><option value=28>28: Unarchived Missions</option></select><br>
-<h3>Choose Log File to Upload</h3>
-<input name="uploadedfile" type="file">
-<input type="hidden" name="MAX_FILE_SIZE" value="50000000">
-<h3>Brief Description:</h3>
-<p class="center"><textarea cols="40" rows="10" name="desc"></textarea></p>
-<input type="submit" value="Submit Log File">
-</center></form><br>
+<p>Have a Matrix Online chat log or event transcript to share? Send it as a GitHub issue and it will reach the archive maintainer for review.</p>
+<div class="submission-notice">
+  <strong>Please note:</strong> GitHub submissions are public and require a GitHub account. Do not include private or sensitive information.
+</div>
+<h3>How to submit</h3>
+<ol class="submission-steps">
+  <li>Open the log submission form and sign in to GitHub.</li>
+  <li>Add the author, event date, category, and a short description.</li>
+  <li>Paste the log if it is short. For longer logs, create the issue, then attach the <code>.txt</code> file in a comment.</li>
+</ol>
+<p>Plain-text logs are preferred. If you can, use a filename such as <code>AuthorName_Date_Short-Description.txt</code>. Submissions are reviewed before anything is added to the archive.</p>
+<p><a class="submission-button" href="https://github.com/Valdularo/archivesci-datanode/issues/new?template=submit-log.yml" target="_blank" rel="noopener">Open the GitHub log submission form</a></p>
+<p class="submission-note">You can also <a href="https://github.com/Valdularo/archivesci-datanode/issues">view existing submissions</a>.</p>
 </div>
 
 </body>

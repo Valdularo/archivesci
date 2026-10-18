@@ -288,6 +288,123 @@ img {
   outline-offset: -2px;
 }
 
+.image-viewer {
+  width: min(1100px, calc(100% - 32px));
+  max-width: none;
+  max-height: min(92vh, 900px);
+  padding: clamp(12px, 2vw, 22px);
+  border: 1px solid var(--archive-line);
+  border-radius: 8px;
+  background: #101513;
+  color: var(--archive-text);
+}
+
+.image-viewer::backdrop {
+  background: rgba(0, 0, 0, .86);
+}
+
+.image-viewer-toolbar,
+.image-viewer-stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.image-viewer-toolbar {
+  margin-bottom: 12px;
+  color: var(--archive-muted);
+}
+
+.image-viewer button {
+  min-height: 42px;
+  padding: 8px 14px;
+  border: 1px solid var(--archive-line);
+  border-radius: 4px;
+  background: #202b24;
+  color: var(--archive-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.image-viewer button:hover,
+.image-viewer button:focus-visible {
+  border-color: var(--archive-green-strong);
+  color: var(--archive-green);
+}
+
+.image-viewer button:focus-visible {
+  outline: 2px solid var(--archive-green-strong);
+  outline-offset: 2px;
+}
+
+.image-viewer-stage {
+  justify-content: center;
+}
+
+.image-viewer-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(92vh - 150px);
+  object-fit: contain;
+}
+
+.image-viewer-caption {
+  margin: 12px 0 0;
+  color: var(--archive-muted);
+  text-align: center;
+}
+
+.submission-notice {
+  margin: 20px 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(238, 243, 238, .12);
+  border-left: 3px solid var(--archive-green-strong);
+  border-radius: 4px;
+  background: #111713;
+}
+
+.submission-steps {
+  padding-left: 1.5em;
+  color: var(--archive-muted);
+}
+
+.submission-steps li {
+  margin: .5em 0;
+  padding-left: .25em;
+}
+
+.submission-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid var(--archive-green-strong);
+  border-radius: 4px;
+  background: #202b24;
+  color: var(--archive-green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.submission-button:hover,
+.submission-button:focus-visible {
+  background: rgba(166, 227, 161, .12);
+  color: #d0f2cb;
+}
+
+.submission-button:focus-visible {
+  outline: 2px solid var(--archive-green-strong);
+  outline-offset: 2px;
+}
+
+.submission-note {
+  color: var(--archive-muted);
+  font-size: .9rem;
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--archive-line);
@@ -328,5 +445,30 @@ blockquote {
   #main table {
     display: block;
     overflow-x: auto;
+  }
+
+  .image-viewer-stage {
+    position: relative;
+    flex-direction: column;
+  }
+
+  .image-viewer-image {
+    max-height: calc(82vh - 160px);
+  }
+
+  .image-viewer-previous,
+  .image-viewer-next {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+
+  .image-viewer-previous {
+    left: 4px;
+  }
+
+  .image-viewer-next {
+    right: 4px;
   }
 }
