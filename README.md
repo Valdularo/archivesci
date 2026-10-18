@@ -1,6 +1,6 @@
 # MxO Archive
 
-This is a static site and can be hosted on GitHub Pages without a build step or package installation. The searchable landing page is `index.html`; the original archived pages and image assets are kept in their mirrored folders. Archived pages use a shared dark-green theme from `archivalscience.shock-therapy.org/archive-theme.css`.
+This is a static site and can be hosted on GitHub Pages without a build step or package installation. The searchable landing page is `index.html`; the original archived pages and image assets are kept in their mirrored folders. Archived pages use a shared dark-green theme from `archive/archive-theme.css`.
 
 ## Publish with GitHub Pages
 
@@ -16,7 +16,7 @@ The **Submit Your Logs** page links to a GitHub issue form because GitHub Pages 
 
 ## Updating the search index
 
-The searchable index and transcript next/previous sequence are generated from collection pages in `archivalscience.shock-therapy.org/`. If those pages change, rebuild them with:
+The searchable index and transcript next/previous sequence are generated from collection pages in `archive/`. If those pages change, rebuild them with:
 
 ```sh
 python3 tools/build_catalog.py
@@ -24,4 +24,4 @@ python3 tools/build_catalog.py
 
 This also updates `transcript-navigation.js` and adds its script reference to available transcript pages.
 
-Keep the mirrored site directory and the external-image directories alongside the landing page so that archived transcripts and images continue to resolve. Keep `archive-theme.css` in the mirrored directory so its pages retain the matching design. HTTrack cookies, cache, and crawl logs are not needed to browse or host the site and should not be published.
+Keep the `archive/` directory and the external-image directories alongside the landing page so that archived transcripts and images continue to resolve. Keep `archive-theme.css` in `archive/` so its pages retain the matching design. HTTrack cookies, cache, and crawl logs are not needed to browse or host the site and should not be published.

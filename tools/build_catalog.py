@@ -9,7 +9,7 @@ from urllib.parse import unquote, urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ARCHIVE = ROOT / "archivalscience.shock-therapy.org"
+ARCHIVE = ROOT / "archive"
 OUTPUT = ROOT / "catalog.js"
 TRANSCRIPT_NAVIGATION = ARCHIVE / "transcript-navigation.js"
 TRANSCRIPT_NAVIGATION_TAG = '<script defer charset="utf-8" src="transcript-navigation.js"></script>'
@@ -102,7 +102,7 @@ def parse_collection(path):
             {
                 "title": " ".join("".join(row[0]["text"]).split()),
                 "summary": " ".join("".join(row[1]["text"]).split()),
-                "path": f"archivalscience.shock-therapy.org/{target}",
+                "path": f"archive/{target}",
                 "available": target_path.is_file(),
             }
         )
@@ -217,7 +217,7 @@ def main():
         collection = {
             "id": path.name,
             "title": collection_title(path.name),
-            "path": f"archivalscience.shock-therapy.org/{path.name}",
+            "path": f"archive/{path.name}",
             "count": len(entries),
         }
         collections.append(collection)
