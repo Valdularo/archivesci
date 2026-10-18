@@ -26,12 +26,27 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   min-width: 320px;
   margin: 0;
   padding: 0 0 48px;
-  background: var(--archive-page);
+  background: transparent;
   color: var(--archive-text);
   font: 16px/1.7 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: url("../assets/matrix-code.png") center top / min(100vw, 1440px) auto no-repeat;
+  opacity: .2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 34%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 34%, transparent 92%);
 }
 
 a {
@@ -67,7 +82,7 @@ h1 {
   padding: 14px 18px;
   border: 1px solid rgba(238, 243, 238, .1);
   border-radius: 5px;
-  background: #111713;
+  background: rgba(17, 23, 19, .76);
   text-align: center;
 }
 
@@ -126,7 +141,7 @@ body > center > img {
   overflow-wrap: anywhere;
   border: 1px solid var(--archive-line);
   border-radius: 6px;
-  background: var(--archive-surface);
+  background: rgba(23, 31, 27, .84);
   color: var(--archive-text);
   text-align: left;
 }
@@ -153,7 +168,7 @@ body > center > img {
   border: 1px solid var(--archive-line);
   border-left: 3px solid var(--archive-green-strong);
   border-radius: 5px;
-  background: #141b17;
+  background: rgba(20, 27, 23, .82);
 }
 
 #main .speaker {
@@ -316,7 +331,7 @@ img {
   overflow: hidden;
   border: 1px solid var(--archive-line);
   border-radius: 5px;
-  background: #111713;
+  background: rgba(17, 23, 19, .82);
 }
 
 .image-browser-card a {
@@ -426,7 +441,7 @@ img {
   border: 1px solid rgba(238, 243, 238, .12);
   border-left: 3px solid var(--archive-green-strong);
   border-radius: 4px;
-  background: #111713;
+  background: rgba(17, 23, 19, .82);
 }
 
 .submission-steps {

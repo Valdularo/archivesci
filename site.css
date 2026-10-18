@@ -17,8 +17,26 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: var(--page); }
+html { scroll-behavior: smooth; background: var(--page); }
+body {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  min-width: 320px;
+  background: transparent;
+}
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: url("assets/matrix-code.png") center top / min(100vw, 1440px) auto no-repeat;
+  opacity: .2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 34%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 34%, transparent 92%);
+}
 a { color: inherit; }
 button, input, select { font: inherit; }
 
@@ -26,7 +44,7 @@ button, input, select { font: inherit; }
   position: relative;
   z-index: 1;
   border-bottom: 1px solid rgba(238, 243, 238, .1);
-  background: #111713;
+  background: rgba(17, 23, 19, .76);
 }
 .header-inner {
   width: min(1120px, calc(100% - 48px));
@@ -57,8 +75,7 @@ nav a:hover, nav a:focus-visible { color: var(--green); }
   overflow: hidden;
   padding: clamp(72px, 10vw, 132px) max(24px, calc((100vw - 1120px) / 2));
   background:
-    radial-gradient(ellipse at 78% 27%, rgba(83, 150, 91, .16), transparent 32%),
-    linear-gradient(115deg, #18231d, #101513 70%);
+    linear-gradient(115deg, rgba(24, 35, 29, .38), rgba(16, 21, 19, .12) 70%);
 }
 .hero::after {
   position: absolute;
