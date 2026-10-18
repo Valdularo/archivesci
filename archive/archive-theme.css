@@ -167,6 +167,10 @@ h1 {
   outline-offset: 2px;
 }
 
+#links a[href$="loggingtips.html"] {
+  display: none;
+}
+
 body > center > img {
   display: block;
   width: min(1120px, calc(100% - 48px));
