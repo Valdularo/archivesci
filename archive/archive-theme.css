@@ -146,21 +146,25 @@ h1 {
   display: inline-flex;
   align-items: center;
   min-height: 40px;
-  padding: 0;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
   color: var(--archive-muted);
   text-decoration: none;
   white-space: nowrap;
-  transition: color .15s ease;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
 }
 
 #links a:hover,
 #links a:focus-visible {
+  border-color: rgba(166, 227, 161, .25);
+  background: rgba(166, 227, 161, .08);
   color: var(--archive-green);
 }
 
 #links a:focus-visible {
   outline: 2px solid var(--archive-green-strong);
-  outline-offset: 4px;
+  outline-offset: 2px;
 }
 
 body > center > img {
