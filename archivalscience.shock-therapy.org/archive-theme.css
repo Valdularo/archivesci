@@ -64,18 +64,18 @@ h1 {
   float: none;
   width: min(1120px, calc(100% - 48px));
   margin: 0 auto 28px;
-  padding: 12px 18px;
+  padding: 14px 18px;
   border: 1px solid rgba(238, 243, 238, .1);
   border-radius: 5px;
   background: #111713;
-  text-align: left;
+  text-align: center;
 }
 
 #links p {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 5px 14px;
+  justify-content: center;
+  gap: 8px;
   margin: 0;
   padding: 0;
   color: var(--archive-muted);
@@ -85,13 +85,27 @@ h1 {
 }
 
 #links a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
   color: var(--archive-muted);
   text-decoration: none;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
 }
 
 #links a:hover,
 #links a:focus-visible {
+  border-color: rgba(166, 227, 161, .25);
+  background: rgba(166, 227, 161, .08);
   color: var(--archive-green);
+}
+
+#links a:focus-visible {
+  outline: 2px solid var(--archive-green-strong);
+  outline-offset: 2px;
 }
 
 body > center > img {
