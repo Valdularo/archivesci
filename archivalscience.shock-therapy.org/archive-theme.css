@@ -206,6 +206,88 @@ img {
   border-radius: 3px;
 }
 
+.image-browser-intro {
+  margin: 0 0 20px;
+  color: var(--archive-muted);
+}
+
+.image-browser-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 18px;
+}
+
+.image-browser-search label,
+.image-browser-count {
+  color: var(--archive-muted);
+  font-size: .9rem;
+}
+
+.image-browser-search input {
+  flex: 1 1 240px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--archive-line);
+  border-radius: 4px;
+  background: #101513;
+  color: var(--archive-text);
+  font: inherit;
+}
+
+.image-browser-search input:focus-visible {
+  outline: 2px solid var(--archive-green-strong);
+  outline-offset: 2px;
+}
+
+.image-browser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+  gap: 16px;
+}
+
+.image-browser-card {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--archive-line);
+  border-radius: 5px;
+  background: #111713;
+}
+
+.image-browser-card a {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  color: var(--archive-text);
+  text-decoration: none;
+}
+
+.image-browser-card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 0;
+  background: #0b100d;
+  object-fit: contain;
+}
+
+.image-browser-card figcaption {
+  padding: 10px 12px;
+  overflow-wrap: anywhere;
+  font-size: .9rem;
+}
+
+.image-browser-card a:hover figcaption,
+.image-browser-card a:focus-visible figcaption {
+  color: var(--archive-green);
+}
+
+.image-browser-card a:focus-visible {
+  outline: 2px solid var(--archive-green-strong);
+  outline-offset: -2px;
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--archive-line);
