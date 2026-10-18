@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A searchable local index of the Archival Science archive of The Matrix Online transcripts.">
+  <title>Archival Science — The Matrix Online Archive</title>
+  <link rel="stylesheet" href="site.css">
+  <script src="catalog.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="Archival Science home">
+        <span class="brand-mark" aria-hidden="true">AS</span>
+        <span>Archival Science</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#browse">Browse collections</a>
+        <a href="#search">Search transcripts</a>
+        <a href="archivalscience.shock-therapy.org/screens/index.html">Image archive</a>
+        <a href="archivalscience.shock-therapy.org/faq.html">About the archive</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">A community record of The Matrix Online</p>
+      <h1>Stories worth <span>remembering.</span></h1>
+      <p class="hero-copy">Browse archived live-event transcripts, conversations, and other documents from the world of Mega City.</p>
+      <a class="button button-light" href="#browse">Explore the archive <span aria-hidden="true">↓</span></a>
+      <div class="hero-stats" aria-label="Archive contents">
+        <div><strong id="log-count">—</strong><span>transcript entries</span></div>
+        <div><strong id="collection-count">—</strong><span>collections</span></div>
+        <div><strong>2012</strong><span>preserved mirror</span></div>
+      </div>
+    </section>
+
+    <section class="content-section search-section" id="search">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Find a record</p>
+          <h2>Search the archive</h2>
+        </div>
+        <p class="section-note">Search transcript titles, descriptions, and collection names.</p>
+      </div>
+      <form class="search-form" id="search-form" role="search">
+        <label class="visually-hidden" for="search-input">Search transcripts</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" placeholder="Try a character, event, or keyword…" autocomplete="off">
+        <label class="visually-hidden" for="collection-filter">Filter by collection</label>
+        <select id="collection-filter">
+          <option value="">All collections</option>
+        </select>
+        <button class="button button-dark" type="submit">Search</button>
+      </form>
+      <div class="results-heading" aria-live="polite">
+        <p id="result-status">Loading archive index…</p>
+        <button id="clear-search" class="text-button" type="button" hidden>Clear search</button>
+      </div>
+      <ol class="results-list" id="results-list"></ol>
+      <button id="show-more" class="button button-outline show-more" type="button" hidden>Show more results</button>
+    </section>
+
+    <section class="content-section collections-section" id="browse">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Browse by source</p>
+          <h2>Collections</h2>
+        </div>
+        <p class="section-note">Open a collection to browse its original archived index page.</p>
+      </div>
+      <div class="collection-grid" id="collection-grid"></div>
+    </section>
+
+    <aside class="archive-note">
+      <strong>About this copy</strong>
+      <p>This is a local, searchable index for the preserved website mirror. Some original pages or external resources were not captured; unavailable transcripts are marked in the results. Nothing here requires a connection to the original site.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <span>Archival Science</span>
+    <span>Preserving the stories of Mega City.</span>
+  </footer>
+</body>
+</html>

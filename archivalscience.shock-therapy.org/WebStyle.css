@@ -1,0 +1,140 @@
+#main {
+    POSITION: float;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    float: middle;
+    BACKGROUND-COLOR: #000000;
+    WIDTH: 50em;
+    BORDER: #008000 2px solid;
+    TEXT-ALIGN: left;
+ 
+}
+
+A:link {
+    COLOR: #659D32;
+}
+A:visited {
+    COLOR: #659D32;
+}
+A:hover {
+    COLOR: #CC0000;
+}
+A:active {
+    COLOR: #CC0000;
+}
+
+BODY {
+    FONT-SIZE: 0.9em;
+    COLOR: #7CFC00;
+    background-color: #110000;
+    FONT-FAMILY: Arial;
+
+}
+
+H1 {
+    FONT-WEIGHT: bold; 
+    FONT-SIZE: 1.8em; 
+    COLOR: #7CFC00;
+    FONT-FAMILY: Verdana, Arial, Sans-Serif; 
+    TEXT-ALIGN: center; 
+    TEXT-DECORATION: underline;
+}
+
+H2 {
+    FONT-WEIGHT: bold; 
+    FONT-SIZE: 1.5em;
+    COLOR: #7CFC00;
+    FONT-FAMILY: Verdana, Arial, Sans-Serif; 
+    TEXT-ALIGN: center; 
+    TEXT-DECORATION: underline;
+}
+
+H3 {
+    FONT-WEIGHT: bold; 
+    FONT-SIZE: 1.1em; 
+    COLOR: #7CFC00;
+    FONT-FAMILY: Verdana, Arial, Sans-Serif; 
+    TEXT-ALIGN: center;
+    text-Decoration: underline;
+}
+
+HR {
+    COLOR: #8F4C27;
+}
+
+IMG {
+    margin: 0.5em;
+    text-align: center;
+}
+
+
+img.center {
+    LEFT: 10em;
+    TEXT-ALIGN: center;
+}
+
+P {
+    margin: 15px;
+    FONT-SIZE: 0.9em; 
+    COLOR: #7CFC00;
+    FONT-FAMILY: Avant Garde, Arial;
+    TEXT-ALIGN: left;
+    Font-Weight: Bold;
+
+}
+
+P.center {
+    TEXT-ALIGN: center;
+}
+
+#links {
+    POSITION: float; 
+    width: 50em;
+    BACKGROUND-COLOR: #000000;
+    BORDER: #008000 2px solid;
+    text-align: center;
+    float: center;
+
+}
+
+#links P {
+    FONT-SIZE: 0.8em;
+    PADDING-RIGHT: 0px;
+    COLOR: #7CFC00;
+    FONT-FAMILY: Avant Garde, Arial;
+    TEXT-ALIGN: center;
+    Font-Weight: Bold;
+    Text-Indent: 0px;
+
+}
+
+li{
+    FONT-SIZE: 0.8em;
+    TEXT-ALIGN: left;
+}
+
+td.border
+{
+    PADDING: 5px;
+    BORDER: #008000 1px solid;
+}
+
+table.border {
+    BORDER: #008000 1px solid;
+    Font-Weight: bold;
+    COLOR: #7CFC00;
+	text-align: center;
+}
+#pic {
+	POSITION: float;
+    	margin-left: auto;
+    	margin-right: auto; 
+	float: left;
+	margin: 1em;
+ 
+}
+B {
+	FONT-WEIGHT: bold; 
+	COLOR: #ff0000
+}
