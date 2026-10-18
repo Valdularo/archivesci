@@ -79,7 +79,7 @@ def collection_sort_key(path):
 def parse_collection(path):
     parser = CollectionParser()
     parser.feed(path.read_text(encoding="latin-1", errors="replace"))
-    if "Archival Science Databanks" not in "".join(parser.heading):
+    if "Archive Databanks" not in "".join(parser.heading):
         return None
 
     records = []

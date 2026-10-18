@@ -1,4 +1,4 @@
-# Archival Science local website
+# MxO Archive
 
 This is a static site and can be hosted on GitHub Pages without a build step or package installation. The searchable landing page is `index.html`; the original archived pages and image assets are kept in their mirrored folders. Archived pages use a shared dark-green theme from `archivalscience.shock-therapy.org/archive-theme.css`.
 
